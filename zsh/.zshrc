@@ -36,7 +36,7 @@ source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 eval "$(fzf --zsh)"
 
 # --- atuin ---
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-ctrl-r)"
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --preview-window=right:60%"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
