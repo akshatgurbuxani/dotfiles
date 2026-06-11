@@ -1,0 +1,5 @@
+; Machine-specific git overrides
+; Copy to ~/.gitconfig.local (gitignored)
+[user]
+  name = Your Name
+  email = your.email@company.com

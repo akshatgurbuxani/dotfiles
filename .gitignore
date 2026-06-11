@@ -1,0 +1,5 @@
+*.local.lua
+*.local
+*.swp
+.DS_Store
+Brewfile.lock.json

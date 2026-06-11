@@ -1,0 +1,25 @@
+[user]
+	name = Akshat Gurbuxani
+	email = imaksht@gmail.com
+[credential]
+	helper = !gh auth git-credential
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[safe]
+	directory = /home/penpot/penpot
+	directory = /home/penpot/penpot
+	directory = /home/penpot/penpot
+	directory = /home/penpot/penpot
+	directory = /home/penpot/penpot
+	directory = /home/penpot/penpot
+	directory = /home/penpot/penpot
+	directory = /home/penpot/penpot
+	directory = /home/penpot/penpot
+[init]
+	defaultBranch = main
+
+[include]
+	path = ~/.gitconfig.local

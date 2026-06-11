@@ -1,0 +1,4 @@
+-- Machine-specific Neovim overrides
+-- Copy to init.local.lua (gitignored)
+-- e.g., work proxies, different formatters, etc.
+-- vim.g.some_work_setting = true
