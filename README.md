@@ -1,62 +1,66 @@
 # dotfiles
 
-Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Personal environment configuration managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-## What's included
+## What's inside
 
-| Package | What it tracks |
-|---------|---------------|
-| `nvim/` | Neovim config (`init.lua`), plugins, keymaps, LSP |
-| `zsh/` | Shell aliases, prompt (powerlevel10k), fzf, zoxide, completions |
-| `tmux/` | Tmux config, keybinds, TPM plugins |
-| `git/` | Git config, credential helper, aliases |
-| `Brewfile` | All Homebrew packages (formulae, casks, VS Code extensions, npm) |
+| Directory | Manages |
+|-----------|---------|
+| `nvim/` | Editor config, plugins, LSP, keymaps |
+| `zsh/` | Shell aliases, prompt (powerlevel10k), fzf, zoxide |
+| `tmux/` | Terminal multiplexer config, TPM plugins |
+| `git/` | Global git config, credential helper |
+| `Brewfile` | Homebrew packages (formulae + casks) |
 
-## Setup on a new machine
+## Setup
+
+**Prerequisite:** [Homebrew](https://brew.sh)
 
 ```bash
-# 1. Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# 2. Clone
-git clone https://github.com/YOUR_USER/dotfiles ~/dotfiles
-
-# 3. Run setup
-cd ~/dotfiles && chmod +x setup.sh && ./setup.sh
-
-# 4. Tmux: prefix + I  (capital I) to install TPM plugins
-# 5. Neovim: plugins auto-install on first open via lazy.nvim
-# 6. Restart your terminal
+# Clone anywhere — setup.sh detects its own location
+git clone https://github.com/akshatgurbuxani/dotfiles
+cd dotfiles
+./setup.sh
 ```
 
-## Machine-specific overrides (NOT in git)
+Then:
+- **Tmux:** press `prefix + I` to install TPM plugins
+- **Neovim:** plugins install automatically on first launch
+- **Restart your terminal**
 
-Create any of these for per-machine config:
-
-- `~/.zshrc.local` — shell overrides (e.g., work proxies, machine-specific PATHs)
-- `~/.gitconfig.local` — git user for work machine
-- `~/.config/nvim/init.local.lua` — neovim overrides (e.g., different formatters)
-
-Example templates are in the repo at `git/.gitconfig.local.example` and
-`nvim/.config/nvim/init.local.example.lua`.
-
-## Daily use
-
-Edit files in `~/dotfiles/` — changes are instantly reflected (symlinks).
-
-To add a new package:
-1. Create a directory: `mkdir -p ~/dotfiles/newpkg/.config/newapp`
-2. Place your config: `cp ~/.config/newapp/config ~/dotfiles/newpkg/.config/newapp/`
-3. Stow it: `cd ~/dotfiles && stow newpkg`
-
-To remove a package: `cd ~/dotfiles && stow -D pkgname`
-
-## Keeping in sync
+## Updating another machine
 
 ```bash
-# Personal machine: push changes
-cd ~/dotfiles && git add -A && git commit -m "..." && git push
+cd dotfiles
+git pull
+```
 
-# Work machine: pull updates
-cd ~/dotfiles && git pull && stow --restow nvim zsh tmux git
+Symlinks already point to the repo — changes take effect immediately.
+
+## Machine-specific overrides
+
+These files are gitignored. Create them for per-machine config:
+
+| File | Purpose |
+|------|---------|
+| `~/.zshrc.local` | Shell overrides (PATHs, work proxies) |
+| `~/.gitconfig.local` | Work git user, different email |
+| `~/.config/nvim/init.local.lua` | Neovim overrides (formatters, work settings) |
+
+See `*.example` files in the repo for templates.
+
+## Managing packages
+
+```bash
+# Add a new config
+mkdir -p dotfiles/newpkg/.config/app
+stow newpkg
+
+# Remove a config
+stow -D newpkg
+
+# Move the repo elsewhere
+mv dotfiles /new/path
+cd /new/path
+./setup.sh    # re-creates symlinks
 ```
