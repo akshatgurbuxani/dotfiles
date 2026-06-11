@@ -9,23 +9,20 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/akshatgurbuxani/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/akshatgurbuxani/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/akshatgurbuxani/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/akshatgurbuxani/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="$HOME/.local/bin:$PATH"
-
-# opencode
-export PATH=/Users/akshatgurbuxani/.opencode/bin:$PATH
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -69,8 +66,7 @@ bindkey '^g' _open_yazi
 alias cat="bat"
 export BAT_THEME="Dracula"
 
-# Added by Antigravity
-export PATH="/Users/akshatgurbuxani/.antigravity/antigravity/bin:$PATH"
+# Machine-local overrides (antigravity, opencode, etc. go in ~/.zshrc.local)
 
 # Machine-local overrides (not tracked in git)
 [[ ! -f ~/.zshrc.local ]] || source ~/.zshrc.local

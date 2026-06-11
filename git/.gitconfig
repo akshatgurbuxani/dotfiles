@@ -10,14 +10,6 @@
 	process = git-lfs filter-process
 [safe]
 	directory = /home/penpot/penpot
-	directory = /home/penpot/penpot
-	directory = /home/penpot/penpot
-	directory = /home/penpot/penpot
-	directory = /home/penpot/penpot
-	directory = /home/penpot/penpot
-	directory = /home/penpot/penpot
-	directory = /home/penpot/penpot
-	directory = /home/penpot/penpot
 [init]
 	defaultBranch = main
 
