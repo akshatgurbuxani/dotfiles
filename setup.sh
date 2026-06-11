@@ -3,18 +3,15 @@ set -euo pipefail
 
 DOTFILES="$HOME/dotfiles"
 
+echo "==> Installing stow..."
+brew install stow
+
 echo "==> Installing Homebrew packages..."
 brew bundle --file="$DOTFILES/Brewfile" || true
 
-echo "==> Symlinking dotfiles..."
-ln -sf "$DOTFILES/zsh/.zshrc"   "$HOME/.zshrc"
-ln -sf "$DOTFILES/zsh/.zprofile" "$HOME/.zprofile"
-ln -sf "$DOTFILES/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
-
-ln -sf "$DOTFILES/tmux/.tmux.conf" "$HOME/.tmux.conf"
-ln -sf "$DOTFILES/git/.gitconfig"  "$HOME/.gitconfig"
-
-ln -sf "$DOTFILES/nvim" "$HOME/.config/nvim"
+echo "==> Stowing dotfiles..."
+cd "$DOTFILES"
+stow nvim zsh tmux git
 
 echo "==> Setting up tmux plugin manager..."
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
