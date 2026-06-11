@@ -1,4 +1,5 @@
 tap "chaoscoder/tap"
+brew "atuin"
 brew "bat"
 brew "btop"
 brew "commitizen"
