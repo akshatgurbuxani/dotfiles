@@ -11,7 +11,7 @@ brew bundle --file="$DOTFILES/Brewfile" || true
 
 echo "==> Stowing dotfiles..."
 cd "$DOTFILES"
-stow --restow nvim zsh tmux git
+stow --restow --target="$HOME" nvim zsh tmux git
 
 echo "==> Setting up tmux plugin manager..."
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
