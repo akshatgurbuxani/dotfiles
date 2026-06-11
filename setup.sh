@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DOTFILES="$HOME/dotfiles"
+DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 echo "==> Installing stow..."
 brew install stow
@@ -11,7 +11,7 @@ brew bundle --file="$DOTFILES/Brewfile" || true
 
 echo "==> Stowing dotfiles..."
 cd "$DOTFILES"
-stow nvim zsh tmux git
+stow --restow nvim zsh tmux git
 
 echo "==> Setting up tmux plugin manager..."
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
