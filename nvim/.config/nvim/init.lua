@@ -41,7 +41,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter").setup({
-        ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "tsx", "javascript", "typescript", "html", "css", "json", "yaml", "markdown" },
+        ensure_installed = { "c", "cpp", "lua", "python", "rust", "tsx", "javascript", "typescript", "html", "css", "json", "yaml", "markdown" },
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
@@ -59,7 +59,7 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     opts = {
-      ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "ts_ls", "gopls", "clangd" },
+      ensure_installed = { "lua_ls", "rust_analyzer", "pyright", "ts_ls", "clangd" },
       automatic_installation = true,
     },
   },
@@ -89,7 +89,7 @@ require("lazy").setup({
         require("cmp_nvim_lsp").default_capabilities()
       )
 
-      local servers = { "lua_ls", "rust_analyzer", "pyright", "ts_ls", "gopls", "clangd" }
+      local servers = { "lua_ls", "rust_analyzer", "pyright", "ts_ls", "clangd" }
       for _, server in ipairs(servers) do
         vim.lsp.config(server, {
           on_attach = on_attach,
