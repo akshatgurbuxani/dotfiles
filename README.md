@@ -10,6 +10,7 @@ Personal environment configuration managed with [GNU Stow](https://www.gnu.org/s
 | `zsh/` | Shell aliases, prompt (powerlevel10k), fzf, zoxide |
 | `tmux/` | Terminal multiplexer config, TPM plugins |
 | `git/` | Global git config, credential helper |
+| `ghostty/` | Ghostty terminal config (used by cmux) |
 | `Brewfile` | Homebrew packages (formulae + casks) |
 
 ## Setup
